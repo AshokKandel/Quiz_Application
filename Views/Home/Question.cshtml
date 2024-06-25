@@ -1,0 +1,38 @@
+﻿@model Quiz_Application.Models.Question
+
+@{
+    ViewData["Title"] = "Questions";
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+
+<a href="@Url.Action("Index", "Home")">Logout</a>
+
+<h2>Questions</h2>
+
+<form asp-action="Question" asp-controller="Home" method="post">
+    <div class="question-container">
+        <div class="question">
+            <div class="question-title">@Model.Quiz_Question</div>
+            <ul class="options">
+                <li class="option">
+                    <input type="radio" name="selectedOption" value="A" /> @Model.OptionA
+                </li>
+                <li class="option">
+                    <input type="radio" name="selectedOption" value="B" /> @Model.OptionB
+                </li>
+                <li class="option">
+                    <input type="radio" name="selectedOption" value="C" /> @Model.OptionC
+                </li>
+                <li class="option">
+                    <input type="radio" name="selectedOption" value="D" /> @Model.OptionD
+                </li>
+            </ul>
+        </div>
+    </div>
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
